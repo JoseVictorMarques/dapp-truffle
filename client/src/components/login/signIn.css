@@ -1,0 +1,18 @@
+.SignIn-All{
+    background: #282c34;
+    width: 100vw;
+    height:100vh;
+    position: fixed;
+}
+.Box-Selector, .ID-div, .password-div, .address-div{
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(99, 35, 90);
+    color: white;
+}
+#demo-simple-select-password, #demo-simple-select-ocuppation, #demo-simple-select-id, #demo-simple-select-address{
+    color:white;
+}
+#demo-simple-select-label{
+    color: white;
+}

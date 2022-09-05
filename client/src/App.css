@@ -1,0 +1,89 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.container {
+  background-color: #ffffff;
+  height: 500px;
+  width: 1000px;
+  justify-content: left;
+  border-radius: 10px;
+  border-color: white;
+  z-index: 0;
+}
+.loading_container{
+  position: absolute;
+  background-color: #ffffff;
+  height: 420px;
+  width: 800px;
+  justify-content: left;
+  z-index: 10;
+  opacity: 0.6;
+}
+
+.textinput {
+  font-family: monospace;
+  height: 30px;
+  font-size: 18px;
+  width: 340px;
+  margin-top: 10px;
+  justify-content: left;
+  border-radius: 4px;
+  border-width: 0.5px;
+}
+
+
+.logo_text {
+  
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: left;
+  font-size: 50px;
+  color: rgb(99, 35, 90);
+}
+
+.alert {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.textdiv {
+  width: 600px;
+  margin-left: 210px;
+  margin-top: 30px;
+  color:rgb(99, 35, 90);
+  font-family: monospace;
+  font-size: 18px;
+  text-align: left;
+}
+
+.textdivdetails{
+  margin-left: 50px;
+  margin-top: 30px;
+  color:rgb(99, 35, 90);
+  font-family: monospace;
+  font-size: 18px;
+  text-align: left;
+  max-height: 80px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  scrollbar-gutter: stable;
+}
+
+#relation-select-password, #relation-select-id, #relation-select-address{
+  color:rgb(99, 35, 90);
+}
+#relation-select-label,#relation-select-ocuppation{
+  color: black;
+}
