@@ -10,22 +10,17 @@ import SignIn from './components/login/signIn';
 import { useEffect, useState } from 'react';
 
 
-  // endereço onde a blockchain está rodando
-  const providerUrl = 'http://localhost:7545'
-  const contract_address = "0x9279402D0b52BB03B362a247a93b1Ab1C348FEd9"
-  const web3 = new Web3(providerUrl);
-  //const fs = import('fs');
-  //const data = fs.readFileSync('./contracts/MedRecord.json');
-  //const abi = JSON.parse(data);
-  //const contract = new web3.eth.Contract(abi, contract_address);
-  
-  const abi = require('./abi.json');
-  const contract = new web3.eth.Contract(abi, contract_address);
 
-
+// Access our wallet inside of our dapp
+const web3 = new Web3(Web3.givenProvider);
+console.log(Web3.givenProvider)
+// Contract address of the deployed smart contract
+const contractAddress = web3.utils.toChecksumAddress('0xEcB1f6CB4d05aBCEf37ba36474571a71F2dc7744');
+const abi = require('./abi.json');
+const contract = new web3.eth.Contract(abi, contractAddress);
 
 function App() {
-
+  // Hold variables that will interact with our contract and frontend
   const [accounts, setAccounts] = useState([]);
   //web3.eth.getAccounts().then((out) => {accounts = out; console.log(accounts);} );
   useEffect(() => {
@@ -34,7 +29,7 @@ function App() {
     web3.eth.getAccounts().then((out) => {setAccounts(out); } );
 
   });
-
+  
   return (
   <Router>
     <Switch >

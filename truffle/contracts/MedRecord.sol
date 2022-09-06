@@ -107,7 +107,7 @@ contract MedRecord {
     );
 
 
-    constructor () public {
+    constructor ()  {
         addPatient("Patient1","123" );
         addDoctor("Doctor1", "Otorrino", "123","1234-SP");
         addRegulator("Admin","123");
