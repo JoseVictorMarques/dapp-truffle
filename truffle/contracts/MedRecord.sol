@@ -53,14 +53,12 @@ contract MedRecord {
     }
 
     struct Medicine {
-        uint id;
         uint code;
         uint patient_id;
         bool was_bought;
     }
 
     struct Exam {
-        uint id;
         uint code;
         uint patient_id;
         bool was_concluded;
@@ -96,8 +94,6 @@ contract MedRecord {
     uint public regulatorsCount;
     uint public pharmaciesCount;
     uint public dcentersCount;
-    uint public medicinesCount;
-    uint public examsCount;
 
 
     // voted event
@@ -108,11 +104,11 @@ contract MedRecord {
 
 
     constructor ()  {
-        addPatient("Patient1","123" );
-        addDoctor("Doctor1", "Otorrino", "123","1234-SP");
-        addRegulator("Admin","123");
-        addPharmacy("Pharmacy1","123");
-        addDCenter("DCenter1","123");
+        addPatient("Patient-Test","123" );
+        addDoctor("Doctor-Test", "Otorrino", "123","1234-SP");
+        addRegulator("Admin-Test","123");
+        addPharmacy("Pharmacy-Test","123");
+        addDCenter("DCenter-Test","123");
 
     }
 
@@ -142,13 +138,11 @@ contract MedRecord {
     } 
 
     function addMedicine (uint _code, uint _patientID ) public{
-        medicinesCount++;
-        medicines[medicinesCount] = Medicine(medicinesCount, _code, _patientID, false);
+        medicines[_code] = Medicine( _code, _patientID, false);
     }
 
     function addExam (uint _code, uint _patientID ) public{
-        examsCount++;
-        exams[examsCount] = Exam(examsCount, _code, _patientID, false);
+        exams[_code] = Exam( _code, _patientID, false);
     }
 
     function random( uint _id) public view returns (uint) {
@@ -215,8 +209,8 @@ contract MedRecord {
     }
 
     function sell_medicine( uint  _medicine, uint _patientID, uint _pharmacyID) public{
-
         require(authorizationsPharmacy[_patientID][_pharmacyID],"authorizationsPharmacy test" );
+        require(medicines[_medicine].code > 0, "medicine test");
 
         bool atual = medicines[_medicine].was_bought;
         if (atual == false){
@@ -226,7 +220,8 @@ contract MedRecord {
 
     function take_exam( uint  _exam, uint _patientID, uint _dcenterID) public{
         require(authorizationsDCenter[_patientID][_dcenterID],"authorizationsDCenter test" );
-
+        require(exams[_exam].code > 0, "exam test");
+        
         bool atual = exams[_exam].was_concluded;
         if (atual == false){
             exams[_exam].was_concluded = true;

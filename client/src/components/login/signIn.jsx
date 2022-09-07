@@ -1,17 +1,16 @@
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import Box from '@material-ui/core/Box';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import { useState } from 'react';
 import { Redirect } from "react-router-dom";
 import './signIn.css'
-import { Button, Input } from '@mui/material';
+import { Button, Input } from '@material-ui/core';
 
 function SignIn(props) {
   const [actor, setActor] = useState('');
   const [id, setID] = useState(0);
-  const [password, setPassword]= useState('');
   const [respOK, setRespOk] = useState(undefined);
 
   const handleChange = (event) => {
@@ -30,7 +29,6 @@ function SignIn(props) {
     }
 
     setID(uid);
-    setPassword(pwrd);
   }
 
 

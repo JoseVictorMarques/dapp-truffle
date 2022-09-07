@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 const web3 = new Web3(Web3.givenProvider);
 console.log(Web3.givenProvider)
 // Contract address of the deployed smart contract
-const contractAddress = web3.utils.toChecksumAddress('0xEcB1f6CB4d05aBCEf37ba36474571a71F2dc7744');
+const contractAddress = web3.utils.toChecksumAddress('0x7cEc893FC1ee753069682dEBD64aBE5D8fA1C85c');
 const abi = require('./abi.json');
 const contract = new web3.eth.Contract(abi, contractAddress);
 

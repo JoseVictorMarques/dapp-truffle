@@ -1,637 +1,276 @@
 [
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "medicinesCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "doctorsCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
 		"inputs": [
 			{
-				"name": "_patientId",
-				"type": "uint256"
-			},
-			{
-				"name": "_Id",
-				"type": "uint256"
-			},
-			{
-				"name": "_authorize",
-				"type": "bool"
-			},
-			{
-				"name": "_typevalue",
-				"type": "uint256"
-			}
-		],
-		"name": "relations",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "a",
-				"type": "string"
-			},
-			{
-				"name": "b",
-				"type": "string"
-			}
-		],
-		"name": "compStrings",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
+				"internalType": "string",
 				"name": "_name",
 				"type": "string"
 			},
 			{
+				"internalType": "string",
 				"name": "_password",
 				"type": "string"
 			}
 		],
-		"name": "addPatient",
+		"name": "addDCenter",
 		"outputs": [],
-		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": false,
 		"inputs": [
 			{
+				"internalType": "string",
 				"name": "_name",
 				"type": "string"
 			},
 			{
+				"internalType": "string",
 				"name": "_specialty",
 				"type": "string"
 			},
 			{
+				"internalType": "string",
 				"name": "_password",
 				"type": "string"
 			},
 			{
+				"internalType": "string",
 				"name": "_CRM",
 				"type": "string"
 			}
 		],
 		"name": "addDoctor",
 		"outputs": [],
-		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "authorizationsDoctor",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "exams",
-		"outputs": [
-			{
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"name": "code",
-				"type": "uint256"
-			},
-			{
-				"name": "patient_id",
-				"type": "uint256"
-			},
-			{
-				"name": "was_concluded",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_medicine",
-				"type": "uint256"
-			},
-			{
-				"name": "_patientID",
-				"type": "uint256"
-			},
-			{
-				"name": "_pharmacyID",
-				"type": "uint256"
-			}
-		],
-		"name": "sell_medicine",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "regulators",
-		"outputs": [
-			{
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "password",
-				"type": "string"
-			},
-			{
-				"name": "token",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "authorizationsDCenter",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_exam",
-				"type": "uint256"
-			},
-			{
-				"name": "_patientID",
-				"type": "uint256"
-			},
-			{
-				"name": "_dcenterID",
-				"type": "uint256"
-			}
-		],
-		"name": "take_exam",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "doctors",
-		"outputs": [
-			{
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "specialty",
-				"type": "string"
-			},
-			{
-				"name": "totalAppointments",
-				"type": "uint256"
-			},
-			{
-				"name": "password",
-				"type": "string"
-			},
-			{
-				"name": "token",
-				"type": "uint256"
-			},
-			{
-				"name": "CRM",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "regulatorsCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "dcenters",
-		"outputs": [
-			{
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "password",
-				"type": "string"
-			},
-			{
-				"name": "token",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "dcentersCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
+				"internalType": "uint256",
 				"name": "_code",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "_patientID",
 				"type": "uint256"
 			}
 		],
 		"name": "addExam",
 		"outputs": [],
-		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "",
+				"internalType": "uint256",
+				"name": "_code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_patientID",
 				"type": "uint256"
 			}
 		],
-		"name": "pharmacies",
-		"outputs": [
-			{
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "password",
-				"type": "string"
-			},
-			{
-				"name": "token",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "addMedicine",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "patients",
-		"outputs": [
-			{
-				"name": "id",
-				"type": "uint256"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "password",
-				"type": "string"
-			},
-			{
-				"name": "totalAppointments",
-				"type": "uint256"
-			},
-			{
-				"name": "token",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "authorizationsPharmacy",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
+				"internalType": "string",
 				"name": "_name",
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "_password",
+				"type": "string"
+			}
+		],
+		"name": "addPatient",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "_password",
 				"type": "string"
 			}
 		],
 		"name": "addPharmacy",
 		"outputs": [],
-		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "patientsCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "diagnosis",
-		"outputs": [
-			{
-				"name": "diagnosis_code",
+				"internalType": "string",
+				"name": "_name",
 				"type": "string"
 			},
 			{
-				"name": "medicine_code",
-				"type": "uint256"
-			},
-			{
-				"name": "exam_code",
-				"type": "uint256"
-			},
-			{
-				"name": "timestamp",
-				"type": "uint256"
-			},
-			{
-				"name": "doctor_id",
-				"type": "uint256"
-			},
-			{
-				"name": "obs",
+				"internalType": "string",
+				"name": "_password",
 				"type": "string"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "addRegulator",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "_id",
+				"internalType": "uint256",
+				"name": "_doctorId",
 				"type": "uint256"
-			}
-		],
-		"name": "random",
-		"outputs": [
+			},
 			{
-				"name": "",
+				"internalType": "uint256",
+				"name": "_patientId",
 				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_patientDiagnosis",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_medicine",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_exam",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_obs",
+				"type": "string"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "appointment",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "pharmaciesCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
 		"inputs": [
 			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "medicines",
-		"outputs": [
-			{
-				"name": "id",
+				"internalType": "uint256",
+				"name": "_patientId",
 				"type": "uint256"
 			},
 			{
-				"name": "code",
+				"internalType": "uint256",
+				"name": "_Id",
 				"type": "uint256"
 			},
 			{
-				"name": "patient_id",
-				"type": "uint256"
-			},
-			{
-				"name": "was_bought",
+				"internalType": "bool",
+				"name": "_authorize",
 				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_typevalue",
+				"type": "uint256"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
+		"name": "relations",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": false,
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_medicine",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_patientID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_pharmacyID",
+				"type": "uint256"
+			}
+		],
+		"name": "sell_medicine",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_exam",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_patientID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_dcenterID",
+				"type": "uint256"
+			}
+		],
+		"name": "take_exam",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "_typevalue",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "_id",
 				"type": "uint256"
 			},
 			{
+				"internalType": "string",
 				"name": "_password",
 				"type": "string"
 			}
@@ -639,141 +278,508 @@
 		"name": "verifyUser",
 		"outputs": [
 			{
+				"internalType": "bool",
 				"name": "",
 				"type": "bool"
 			}
 		],
-		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "examsCount",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_code",
-				"type": "uint256"
-			},
-			{
-				"name": "_patientID",
-				"type": "uint256"
-			}
-		],
-		"name": "addMedicine",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_password",
-				"type": "string"
-			}
-		],
-		"name": "addRegulator",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_doctorId",
-				"type": "uint256"
-			},
-			{
-				"name": "_patientId",
-				"type": "uint256"
-			},
-			{
-				"name": "_patientDiagnosis",
-				"type": "string"
-			},
-			{
-				"name": "_medicine",
-				"type": "uint256"
-			},
-			{
-				"name": "_exam",
-				"type": "uint256"
-			},
-			{
-				"name": "_timestamp",
-				"type": "uint256"
-			},
-			{
-				"name": "_obs",
-				"type": "string"
-			}
-		],
-		"name": "appointment",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_password",
-				"type": "string"
-			}
-		],
-		"name": "addDCenter",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	},
 	{
 		"anonymous": false,
 		"inputs": [
 			{
 				"indexed": true,
+				"internalType": "uint256",
 				"name": "_patientId",
 				"type": "uint256"
 			},
 			{
 				"indexed": true,
+				"internalType": "uint256",
 				"name": "_doctorId",
 				"type": "uint256"
 			}
 		],
 		"name": "writedEvent",
 		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "authorizationsDCenter",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "authorizationsDoctor",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "authorizationsPharmacy",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "a",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "b",
+				"type": "string"
+			}
+		],
+		"name": "compStrings",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "pure",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "dcenters",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "token",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "dcentersCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "diagnosis",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "diagnosis_code",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "medicine_code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "exam_code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "doctor_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "obs",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "doctors",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "specialty",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalAppointments",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "token",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "CRM",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "doctorsCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "exams",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "patient_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "was_concluded",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "medicines",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "patient_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "was_bought",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "patients",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalAppointments",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "token",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "patientsCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "pharmacies",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "token",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "pharmaciesCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "random",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "regulators",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "password",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "token",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "regulatorsCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
