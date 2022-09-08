@@ -7,6 +7,7 @@ import Regulator from './components/actors/regulator/regulator';
 import Pharmacy from './components/actors/pharmacy/pharmacy';
 import DCenter from './components/actors/dcenter/dcenter';
 import SignIn from './components/login/signIn';
+import ChangePass from './components/login/changePassword';
 import { useEffect, useState } from 'react';
 
 
@@ -15,7 +16,7 @@ import { useEffect, useState } from 'react';
 const web3 = new Web3(Web3.givenProvider);
 console.log(Web3.givenProvider)
 // Contract address of the deployed smart contract
-const contractAddress = web3.utils.toChecksumAddress('0x7cEc893FC1ee753069682dEBD64aBE5D8fA1C85c');
+const contractAddress = web3.utils.toChecksumAddress('0x415971FAe81f2ACcAA62BD1a605fc1F17C51cA2b');
 const abi = require('./abi.json');
 const contract = new web3.eth.Contract(abi, contractAddress);
 
@@ -47,6 +48,9 @@ function App() {
       </Route>
       <Route path="/dcenter/:dcid">
         <DCenter contract ={contract} accounts ={accounts}/>
+      </Route>
+      <Route path="/changepassword">
+        <ChangePass contract ={contract} accounts ={accounts}/>
       </Route>
       <Route path="/">
         <SignIn contract ={contract} accounts ={accounts}/>

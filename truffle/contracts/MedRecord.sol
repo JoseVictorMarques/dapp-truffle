@@ -221,13 +221,45 @@ contract MedRecord {
     function take_exam( uint  _exam, uint _patientID, uint _dcenterID) public{
         require(authorizationsDCenter[_patientID][_dcenterID],"authorizationsDCenter test" );
         require(exams[_exam].code > 0, "exam test");
-        
+
         bool atual = exams[_exam].was_concluded;
         if (atual == false){
             exams[_exam].was_concluded = true;
         }
     }
 
+    function change_password(uint _typevalue, uint _id, string memory _oldpassword, string memory _newpassword) public  returns (bool) {
+
+        require(verifyUser(_typevalue,_id,_oldpassword), "verify user test");
+        bool userValid =false;
+
+        if(_typevalue == 1){ 
+            doctors[_id].password = _newpassword;
+            userValid = true;
+        }
+        else if(_typevalue == 2){
+            patients[_id].password = _newpassword;
+            userValid = true;
+        }
+        else if(_typevalue == 3){
+            regulators[_id].password = _newpassword;
+            userValid = true;
+        }
+        else if(_typevalue == 4){
+            pharmacies[_id].password = _newpassword;
+            userValid = true;
+        }
+        else if(_typevalue == 5){
+            dcenters[_id].password = _newpassword;
+            userValid = true;
+        }
+        
+        else{
+            require(_typevalue >0 && _typevalue<6, "typevalue out of range");
+        }
+        return userValid;
+
+    }
 
     function appointment (uint _doctorId, uint _patientId,  string memory _patientDiagnosis, uint _medicine, uint _exam, uint _timestamp, string memory _obs) public {
         // require doctorId valid

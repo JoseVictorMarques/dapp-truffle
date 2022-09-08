@@ -1,5 +1,29 @@
 [
 	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "_patientId",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "_doctorId",
+				"type": "uint256"
+			}
+		],
+		"name": "writedEvent",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "string",
@@ -182,133 +206,6 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_patientId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_Id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "bool",
-				"name": "_authorize",
-				"type": "bool"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_typevalue",
-				"type": "uint256"
-			}
-		],
-		"name": "relations",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_medicine",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_patientID",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_pharmacyID",
-				"type": "uint256"
-			}
-		],
-		"name": "sell_medicine",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_exam",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_patientID",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_dcenterID",
-				"type": "uint256"
-			}
-		],
-		"name": "take_exam",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_typevalue",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_password",
-				"type": "string"
-			}
-		],
-		"name": "verifyUser",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "_patientId",
-				"type": "uint256"
-			},
-			{
-				"indexed": true,
-				"internalType": "uint256",
-				"name": "_doctorId",
-				"type": "uint256"
-			}
-		],
-		"name": "writedEvent",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
@@ -375,6 +272,40 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_typevalue",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_oldpassword",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_newpassword",
+				"type": "string"
+			}
+		],
+		"name": "change_password",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -780,6 +711,109 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_patientId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_Id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "_authorize",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_typevalue",
+				"type": "uint256"
+			}
+		],
+		"name": "relations",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_medicine",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_patientID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_pharmacyID",
+				"type": "uint256"
+			}
+		],
+		"name": "sell_medicine",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_exam",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_patientID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_dcenterID",
+				"type": "uint256"
+			}
+		],
+		"name": "take_exam",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_typevalue",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_password",
+				"type": "string"
+			}
+		],
+		"name": "verifyUser",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
