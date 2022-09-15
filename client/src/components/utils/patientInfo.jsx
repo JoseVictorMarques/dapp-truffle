@@ -126,7 +126,7 @@ export default function PatientInfo(props) {
 			</div>
 			<div className="textdivdetails">
 				{diagnosis.length > 0 && autho
-					? diagnosis.map((elem) => JSON.stringify(elem)).join("\n")
+					? diagnosis.map((elem) => JSON.stringify(elem, null, 2)).join(",\n")
 					: null}
 			</div>
 		</div>

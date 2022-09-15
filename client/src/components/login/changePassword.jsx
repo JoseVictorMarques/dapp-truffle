@@ -10,25 +10,15 @@ import { Button, Input } from '@material-ui/core';
 
 function ChangePass(props) {
   const [actor, setActor] = useState('');
-  const [contr,setContr] = useState('');
 
   const handleChange = (event) => {
     setActor(event.target.value);
   };
 
-  const handleContractAddress = (event) => {
-     var currentAddress = props.contract.options.address
-     if(currentAddress !== event.target.value){
-       setContr(event.target.value);
-     }
-  };
 
   function handleSubmit (ident, old_pwrd,new_pwrd ){
     var uid = parseInt(ident,10);
-    if (props.contract.options.address !== contr){
-      props.contract.options.address = contr;
 
-    }
     try{
       props.contract.methods.change_password(actor, uid, old_pwrd, new_pwrd).send( {from: props.accounts[0], gas:3000000})
     }catch(error)
@@ -37,7 +27,6 @@ function ChangePass(props) {
     }
 
   }
-
 
 
   return (
@@ -82,14 +71,6 @@ function ChangePass(props) {
                 <Input id="signin_newpassword"
                 type= "password"
                 placeholder="type your new password here"/>
-              </FormControl>
-          </div>
-          <div className='address-div'>
-              <FormControl>
-                <InputLabel  id="demo-simple-select-address">Address</InputLabel>
-                <Input id="signin_contract_address"
-                placeholder="type your contract address here"
-                onChange={handleContractAddress}/>
               </FormControl>
           </div>
           <Button 
