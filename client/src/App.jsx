@@ -9,16 +9,14 @@ import DCenter from './components/actors/dcenter/dcenter';
 import SignIn from './components/login/signIn';
 import ChangePass from './components/login/changePassword';
 import { useEffect, useState } from 'react';
+import swal from 'sweetalert';
 
 
-
-// Access our wallet inside of our dapp
 const web3 = new Web3(Web3.givenProvider);
-console.log(Web3.givenProvider)
-// Contract address of the deployed smart contract
+console.log(web3.givenProvider)
 const contractAddress = web3.utils.toChecksumAddress('0x415971FAe81f2ACcAA62BD1a605fc1F17C51cA2b');
 const abi = require('./abi.json');
-const contract = new web3.eth.Contract(abi, contractAddress);
+const contract = new web3.eth.Contract(abi, contractAddress)
 
 function App() {
   // Hold variables that will interact with our contract and frontend
@@ -26,8 +24,20 @@ function App() {
   //web3.eth.getAccounts().then((out) => {accounts = out; console.log(accounts);} );
   useEffect(() => {
     // Atualiza o título do documento usando a API do browser
-
-    web3.eth.getAccounts().then((out) => {setAccounts(out); } );
+    if (web3.currentProvider == null)
+    {
+      swal({
+        title: "Metamask Missing",
+        text: "Enable your Metamask extension and reload the page",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+    }
+    else{
+      // Contract address of the deployed smart contract
+      web3.eth.requestAccounts().then((out) => {setAccounts(out); } );
+    }
 
   });
   
@@ -53,7 +63,7 @@ function App() {
         <ChangePass contract ={contract} accounts ={accounts}/>
       </Route>
       <Route path="/">
-        <SignIn contract ={contract} accounts ={accounts}/>
+        <SignIn contract ={contract} web3={web3} accounts ={accounts}/>
       </Route>
     </Switch>
   </Router>

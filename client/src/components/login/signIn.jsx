@@ -1,4 +1,5 @@
 import Box from '@material-ui/core/Box';
+import Card from '@material-ui/core/Card';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -6,7 +7,8 @@ import Select from '@material-ui/core/Select';
 import { useState } from 'react';
 import { Redirect } from "react-router-dom";
 import './signIn.css'
-import { Button, Input } from '@material-ui/core';
+import { Button, CardContent, Input, Typography } from '@material-ui/core';
+
 
 function SignIn(props) {
   const [actor, setActor] = useState('');
@@ -84,6 +86,26 @@ function SignIn(props) {
           >
             Change Password
           </Button>
+          <Card className='Instruction-div'>
+            <CardContent>
+              <Typography color="black" gutterBottom variant="h2">Welcome to MedRecords</Typography>
+              <Typography variant="body1">
+                MedRecords is a decentralized application for managing medical records of patients, aiming to allow greater control of personal information by the data owner, through authorization and de-authorization mechanisms, and greater sharing of this information between different entities in the industry of health, as the patient grants authorizations.
+                In addition, this website uses smart contracts deployed on the Rinkeby public network. Thus, it is necessary to use a digital wallet to carry out the transactions, so it is advisable to use Metamask and crypto faucets to obtain ETH.
+                <br/>
+                <br/>
+                If you are not already logged into your Metamask account and connected to the website, you need to follow a few steps:
+                <br/>
+                1. Install Metamask as a browser extension.
+                <br/>
+                2. Login to your Metamask extension and connect to MedRecords.
+                <br/>
+                3. Reload the page.
+                <br/>
+                4. Insert the user's occupation data, user id and password.
+              </Typography>
+            </CardContent>
+          </Card>
           {  
              ( respOK !==undefined && actor === 1)? <Redirect to= {`/doctor/${id}`} />:
              (respOK !==undefined  && actor === 2)? <Redirect to={`/patient/${id}`}  />:
