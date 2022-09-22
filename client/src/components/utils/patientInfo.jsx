@@ -70,18 +70,19 @@ export default function PatientInfo(props) {
 						settotalAppoint(result.totalAppointments);
 						if (result.totalAppointments > 0) {
 							var aux = [];
-							for (var i = 1; i <= result.totalAppointments; i++) {
+							for (let i = 1; i <= result.totalAppointments; i++) {
 								props.contract.methods
 									.diagnosis(p_id, i)
 									.call()
 									.then(function (result2) {
 										var obj = {
+											id: i,
 											code: result2.diagnosis_code,
 											medicine: result2.medicine_code,
 											exam: result2.exam_code,
 											doctor: result2.doctor_id,
 											date: conversionDate(result2.timestamp),
-											doctor_obs: result2.obs,
+											doctor_obs: result2.doctor_obs,
 											exam_result: result2.exam_result
 										};
 										console.log(obj)
