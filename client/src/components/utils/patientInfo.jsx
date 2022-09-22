@@ -127,10 +127,35 @@ export default function PatientInfo(props) {
 			<div className="textdiv">
 				{totalAppoint && autho ? "Total appointments: " + totalAppoint : null}
 			</div>
-			<div className="textdivdetails">
-				{diagnosis.length > 0 && autho
-					? diagnosis.map((elem) => JSON.stringify(elem, null, 2)).join(",\n")
-					: null}
+			<div className="tabledetails">
+				<tbody>
+					{diagnosis.length > 0 && autho?
+					<tr>
+						<th>Appointment </th>
+						<th>Diagnosis </th>
+						<th>Medicine </th>
+						<th>Exam </th>
+						<th>Doctor </th>
+						<th>Datetime </th>
+						<th>Comments </th>
+						<th>Result of Exam</th>
+					</tr>:null
+					}
+					{diagnosis.length > 0 && autho
+					? diagnosis.map((elem,i) => (
+						<tr key={i}>
+							<td>{elem.id}</td>
+							<td>{elem.code}</td>
+							<td>{elem.medicine}</td>
+							<td>{elem.exam}</td>
+							<td>{elem.doctor}</td>
+							<td>{elem.date}</td>
+							<td>{elem.doctor_obs}</td>
+							<td>{elem.exam_result}</td>
+						</tr>
+					)): null}
+				</tbody>
+				
 			</div>
 		</div>
 	);

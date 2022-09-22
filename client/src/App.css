@@ -87,3 +87,16 @@
 #relation-select-label,#relation-select-ocuppation{
   color: black;
 }
+
+.tabledetails{
+  margin-left: 20px;
+  margin-top: 20px;
+  color:rgb(99, 35, 90);
+  font-family: monospace;
+  font-size: 18px;
+  text-align: left;
+  max-height: 110px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  scrollbar-gutter: stable;
+}
