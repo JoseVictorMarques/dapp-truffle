@@ -10,7 +10,8 @@ contract MedRecord {
         uint exam_code;
         uint timestamp;
         uint doctor_id;
-        string obs;
+        string doctor_obs;
+        string exam_result;
     }
 
     struct Patient {
@@ -62,6 +63,7 @@ contract MedRecord {
         uint code;
         uint patient_id;
         bool was_concluded;
+        string result;
     }
 
 
@@ -142,7 +144,7 @@ contract MedRecord {
     }
 
     function addExam (uint _code, uint _patientID ) public{
-        exams[_code] = Exam( _code, _patientID, false);
+        exams[_code] = Exam( _code, _patientID, false,'');
     }
 
     function random( uint _id) public view returns (uint) {
@@ -211,46 +213,44 @@ contract MedRecord {
     function sell_medicine( uint  _medicine, uint _patientID, uint _pharmacyID) public{
         require(authorizationsPharmacy[_patientID][_pharmacyID],"authorizationsPharmacy test" );
         require(medicines[_medicine].code > 0, "medicine test");
-
         bool atual = medicines[_medicine].was_bought;
         if (atual == false){
             medicines[_medicine].was_bought = true;
         }
     }
 
-    function take_exam( uint  _exam, uint _patientID, uint _dcenterID) public{
+    function take_exam( uint  _exam, uint _patientID, uint _dcenterID, uint _patAppoint,string memory _result) public{
         require(authorizationsDCenter[_patientID][_dcenterID],"authorizationsDCenter test" );
         require(exams[_exam].code > 0, "exam test");
-
         bool atual = exams[_exam].was_concluded;
         if (atual == false){
             exams[_exam].was_concluded = true;
+            exams[_exam].result = _result;
+            diagnosis[_patientID][_patAppoint].exam_result = _result;
         }
     }
 
-    function change_password(uint _typevalue, uint _id, string memory _oldpassword, string memory _newpassword) public  returns (bool) {
+    function change_password(uint _typevalue, uint _id, string memory _password) public  returns (bool) {
 
-        require(verifyUser(_typevalue,_id,_oldpassword), "verify user test");
         bool userValid =false;
-
         if(_typevalue == 1){ 
-            doctors[_id].password = _newpassword;
+            doctors[_id].password = _password;
             userValid = true;
         }
         else if(_typevalue == 2){
-            patients[_id].password = _newpassword;
+            patients[_id].password = _password;
             userValid = true;
         }
         else if(_typevalue == 3){
-            regulators[_id].password = _newpassword;
+            regulators[_id].password = _password;
             userValid = true;
         }
         else if(_typevalue == 4){
-            pharmacies[_id].password = _newpassword;
+            pharmacies[_id].password = _password;
             userValid = true;
         }
         else if(_typevalue == 5){
-            dcenters[_id].password = _newpassword;
+            dcenters[_id].password = _password;
             userValid = true;
         }
         
@@ -280,7 +280,7 @@ contract MedRecord {
         uint patient_appointment =  patients[_patientId].totalAppointments;
 
         // update patient diagnosis
-        diagnosis[_patientId][patient_appointment] = Diagnosis(_patientDiagnosis,_medicine, _exam, _timestamp, _doctorId, _obs);
+        diagnosis[_patientId][patient_appointment] = Diagnosis(_patientDiagnosis,_medicine, _exam, _timestamp, _doctorId, _obs, '');
 
         if (_medicine != 0){
             addMedicine(_medicine,_patientId);

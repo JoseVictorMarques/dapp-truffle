@@ -12,10 +12,11 @@ export default function TakeExam(props) {
 				setAuth(result);
 			});
 	}
-	function takeExam(examID, patientID) {
+	function takeExam(examID, patientID,patAppoint, result) {
 		var e_id = parseInt(examID);
 		var p_id = parseInt(patientID);
 		var dc_id = parseInt(props.id);
+		var pa_id = parseInt(patAppoint);
 		authorizationsDCenter(dc_id, p_id);
 
 		if (isNaN(e_id) || isNaN(dc_id)) {
@@ -23,7 +24,7 @@ export default function TakeExam(props) {
 		} else {
 			try {
 				props.contract.methods
-					.take_exam(e_id, p_id, dc_id)
+					.take_exam(e_id, p_id, dc_id,pa_id,result)
 					.send({ from: props.accounts[0], gas: 3000000 });
 			} catch (error) {
 				console.log(error);
@@ -31,6 +32,8 @@ export default function TakeExam(props) {
 		}
 		document.getElementById("Exam ID").value = "";
 		document.getElementById("Patient ID").value = "";
+		document.getElementById("Appointment ID").value ="";
+		document.getElementById("Exam Result").value= "";
 	}
 
 	return (
@@ -40,6 +43,12 @@ export default function TakeExam(props) {
 			</div>
 			<div>
 				<input id="Patient ID" className="textinput" placeholder="Patient ID" />
+			</div>
+			<div>
+				<input id="Appointment ID" className="textinput" placeholder="Appointment ID" />
+			</div>
+			<div>
+				<input id="Exam Result" className="textinput" placeholder="Exam_Result" />
 			</div>
 			<Button
 				variant="contained"
@@ -52,7 +61,9 @@ export default function TakeExam(props) {
 				onClick={(e) =>
 					takeExam(
 						document.getElementById("Exam ID").value,
-						document.getElementById("Patient ID").value
+						document.getElementById("Patient ID").value,
+						document.getElementById("Appointment ID").value,
+						document.getElementById("Exam Result").value
 					)
 				}
 			>

@@ -81,8 +81,10 @@ export default function PatientInfo(props) {
 											exam: result2.exam_code,
 											doctor: result2.doctor_id,
 											date: conversionDate(result2.timestamp),
-											obs: result2.obs,
+											doctor_obs: result2.obs,
+											exam_result: result2.exam_result
 										};
+										console.log(obj)
 										aux.push(obj);
 										setDiagnosis(aux);
 									});
