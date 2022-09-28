@@ -2,7 +2,6 @@ import { Button } from "@material-ui/core";
 import { useState } from "react";
 
 export default function PatientInfo(props) {
-	const [totalAppoint, settotalAppoint] = useState(null);
 	const [patientName, setPatientName] = useState("");
 	const [diagnosis, setDiagnosis] = useState([]);
 	const [autho, setAutho] = useState(null);
@@ -67,7 +66,6 @@ export default function PatientInfo(props) {
 					.then(function (result) {
 						console.log(props);
 						setPatientName(result.name);
-						settotalAppoint(result.totalAppointments);
 						if (result.totalAppointments > 0) {
 							var aux = [];
 							for (let i = 1; i <= result.totalAppointments; i++) {
@@ -123,9 +121,6 @@ export default function PatientInfo(props) {
 					: patientName
 					? "Patient Name: " + patientName
 					: null}
-			</div>
-			<div className="textdiv">
-				{totalAppoint && autho ? "Total appointments: " + totalAppoint : null}
 			</div>
 			<div className="tabledetails">
 				<tbody>
