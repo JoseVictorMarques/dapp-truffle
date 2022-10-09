@@ -139,14 +139,14 @@ export default function PatientInfo(props) {
 					{diagnosis.length > 0 && autho
 					? diagnosis.map((elem,i) => (
 						<tr key={i}>
-							<td>{elem.id}</td>
-							<td>{elem.code}</td>
-							<td>{elem.medicine}</td>
-							<td>{elem.exam}</td>
-							<td>{elem.doctor}</td>
-							<td>{elem.date}</td>
-							<td>{elem.doctor_obs}</td>
-							<td>{elem.exam_result}</td>
+							<td>{elem.id} </td>
+							<td>{elem.code} </td>
+							<td>{elem.medicine} </td>
+							<td>{elem.exam} </td>
+							<td>{elem.doctor} </td>
+							<td>{elem.date} </td>
+							<td>{elem.doctor_obs} </td>
+							<td>{elem.exam_result} </td>
 						</tr>
 					)): null}
 				</tbody>
