@@ -2,7 +2,6 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract MedRecord {
-    // Model a Candidate
 
     struct Diagnosis {
         string diagnosis_code;
@@ -105,13 +104,8 @@ contract MedRecord {
     );
 
 
-    constructor ()  {
-        addPatient("Patient-Test","123" );
-        addDoctor("Doctor-Test", "Otorrino", "123","1234-SP");
-        addRegulator("Admin-Test","123");
-        addPharmacy("Pharmacy-Test","123");
-        addDCenter("DCenter-Test","123");
-
+    constructor (string memory _password)  {
+        addRegulator("Admin",_password);
     }
 
     function addPatient (string memory _name,string memory _password) public {
@@ -289,7 +283,7 @@ contract MedRecord {
             addExam(_exam,_patientId);
         }
 
-        // trigger voted event
+        // trigger write event
         emit writedEvent(_patientId, _doctorId);
     }
 }
