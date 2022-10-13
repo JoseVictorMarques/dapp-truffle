@@ -20,6 +20,7 @@ const contract = new web3.eth.Contract(abi, contractAddress)
 function App() {
   // Hold variables that will interact with our contract and frontend
   const [accounts, setAccounts] = useState([]);
+  const [userData, setUserData] = useState({type:0, id:0});
   //web3.eth.getAccounts().then((out) => {accounts = out; console.log(accounts);} );
   useEffect(() => {
     // Atualiza o título do documento usando a API do browser
@@ -44,25 +45,25 @@ function App() {
   <Router>
     <Switch >
       <Route path="/regulator/:rid">
-        <Regulator contract ={contract} accounts ={accounts}/>
+        <Regulator contract ={contract} accounts ={accounts} userData={userData}/>
       </Route>
       <Route path="/patient/:pid">
-        <Patient contract ={contract} accounts ={accounts}/>
+        <Patient contract ={contract} accounts ={accounts} userData={userData}/>
       </Route>
       <Route path="/doctor/:did">
-        <Doctor contract ={contract} accounts ={accounts}/>
+        <Doctor contract ={contract} accounts ={accounts} userData={userData}/>
       </Route>
       <Route path="/pharmacy/:phid">
-        <Pharmacy contract ={contract} accounts ={accounts}/>
+        <Pharmacy contract ={contract} accounts ={accounts} userData={userData}/>
       </Route>
       <Route path="/dcenter/:dcid">
-        <DCenter contract ={contract} accounts ={accounts}/>
+        <DCenter contract ={contract} accounts ={accounts} userData={userData}/>
       </Route>
       <Route path="/changepassword">
-        <ChangePass contract ={contract} accounts ={accounts}/>
+        <ChangePass contract ={contract} accounts ={accounts} />
       </Route>
       <Route path="/">
-        <SignIn contract ={contract} web3={web3} accounts ={accounts}/>
+        <SignIn contract ={contract} web3={web3} accounts ={accounts} setUserData={setUserData} userData={userData} />
       </Route>
     </Switch>
   </Router>

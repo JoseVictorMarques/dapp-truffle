@@ -4,7 +4,7 @@ import SwipeableViews from "react-swipeable-views";
 import Authorization from "../../utils/relations";
 import DoctorInfo from "../../utils/doctorInfo";
 import PatientInfo from "../../utils/patientInfo";
-import { Link } from "react-router-dom";
+import { Link,  Redirect } from "react-router-dom";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { Button } from "@material-ui/core";
 
@@ -12,7 +12,7 @@ function TabPanel({ children, value, index }) {
 	return <div>{value === index && <Box p={1}>{children}</Box>}</div>;
 }
 
-function Patient({ contract, accounts }) {
+function Patient({ contract, accounts, userData }) {
 	const { pid } = useParams();
 	const [value, setValue] = useState(0);
 	const handleChange = useCallback((event, newValue) => {
@@ -54,6 +54,9 @@ function Patient({ contract, accounts }) {
 					</Button>
 				</Link>
 			</header>
+			{  
+              (userData.type === 2 && userData.id === parseInt(pid))? null: <Redirect to="/" /> 
+          	}
 		</div>
 	);
 }

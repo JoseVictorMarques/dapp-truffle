@@ -22,6 +22,8 @@ function SignIn(props) {
 
   function handleSubmit (ident, pwrd ){
     var uid = parseInt(ident,10);
+    var type = parseInt(actor,10);
+    props.setUserData((prevState) => ({ ...prevState,type: type, id:uid}));
 
     try{
       props.contract.methods.verifyUser(actor, uid, pwrd).send( {from: props.accounts[0], gas:3000000} ).then(out=>{setRespOk(out)})
@@ -31,6 +33,7 @@ function SignIn(props) {
     }
 
     setID(uid);
+    console.log(props.userData)
   }
 
   function handleChangePass(){

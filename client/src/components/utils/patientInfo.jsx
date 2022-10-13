@@ -66,7 +66,7 @@ export default function PatientInfo(props) {
 					.then(function (result) {
 						console.log(props);
 						setPatientName(result.name);
-						if (result.totalAppointments > 0) {
+						if (result.totalAppointments > 0 && result.token > 0) {
 							var aux = [];
 							for (let i = 1; i <= result.totalAppointments; i++) {
 								props.contract.methods

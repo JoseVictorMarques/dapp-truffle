@@ -8,14 +8,14 @@ import AddDCenter from "../../utils/addDCenter";
 import DoctorInfo from "../../utils/doctorInfo";
 import PatientInfo from "../../utils/patientInfo";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
 function TabPanel({ children, value, index }) {
 	return <div>{value === index && <Box p={1}>{children}</Box>}</div>;
 }
 
-function Regulator({ contract, accounts }) {
+function Regulator({ contract, accounts, userData }) {
 	const { rid } = useParams();
 	const [value, setValue] = useState(0);
 	const handleChange = useCallback((event, newValue) => {
@@ -71,6 +71,9 @@ function Regulator({ contract, accounts }) {
 					</Button>
 				</Link>
 			</header>
+			{  
+              (userData.type === 3 && userData.id === parseInt(rid))? null: <Redirect to="/" /> 
+          	}
 		</div>
 	);
 }
