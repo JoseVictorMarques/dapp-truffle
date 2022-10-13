@@ -13,7 +13,7 @@ import swal from 'sweetalert';
 
 
 const web3 = new Web3(Web3.givenProvider);
-const contractAddress = web3.utils.toChecksumAddress("0xCc8eE53037892c09C9c20655Fb745aE0c33abb27");
+const contractAddress = web3.utils.toChecksumAddress('0xCc8eE53037892c09C9c20655Fb745aE0c33abb27');
 const abi = require('./abi.json');
 const contract = new web3.eth.Contract(abi, contractAddress)
 
