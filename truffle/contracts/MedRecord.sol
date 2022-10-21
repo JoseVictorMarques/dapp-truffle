@@ -3,6 +3,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract MedRecord {
 
+    // Structures
     struct Diagnosis {
         string diagnosis_code;
         uint medicine_code;
@@ -65,7 +66,7 @@ contract MedRecord {
         string result;
     }
 
-
+    // Mapping 
     mapping(uint => Doctor) public doctors;
 
     mapping(uint => Patient) public patients;
@@ -89,25 +90,25 @@ contract MedRecord {
     mapping (uint => mapping(uint=> Diagnosis)) public diagnosis;
 
 
-    // Store Candidates Count
+    // Counters
     uint public patientsCount;
     uint public doctorsCount;
     uint public regulatorsCount;
     uint public pharmaciesCount;
     uint public dcentersCount;
 
-
-    // voted event
+    // Event
     event writedEvent (
         uint indexed _patientId,
         uint indexed _doctorId
     );
 
-
+    // Constructors
     constructor (string memory _password)  {
         addRegulator("Admin",_password);
     }
 
+    // Functions
     function addPatient (string memory _name,string memory _password) public {
         patientsCount ++;
         patients[patientsCount] = Patient(patientsCount, _name,_password,0, 0);
