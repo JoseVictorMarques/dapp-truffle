@@ -97,11 +97,6 @@ contract MedRecord {
     uint public pharmaciesCount;
     uint public dcentersCount;
 
-    // Event
-    event writedEvent (
-        uint indexed _patientId,
-        uint indexed _doctorId
-    );
 
     // Constructors
     constructor (string memory _password)  {
@@ -284,8 +279,5 @@ contract MedRecord {
             addExam(_exam,_patientId);
         }
 
-        // trigger write event
-        emit writedEvent(_patientId, _doctorId);
     }
 }
-

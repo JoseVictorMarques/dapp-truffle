@@ -13,7 +13,7 @@ import swal from 'sweetalert';
 
 
 const web3 = new Web3(Web3.givenProvider);
-const contractAddress = web3.utils.toChecksumAddress('0x2573D54D9C1cf9Bf7Ec999E764A7704f5D1CC062');
+const contractAddress = web3.utils.toChecksumAddress('0x7D71660c6eBa79eaEA08831948fF0C63AD3e82BB');
 const mrJson = require('./contracts/MedRecord.json');
 const abi = mrJson['abi']
 const contract = new web3.eth.Contract(abi, contractAddress)
