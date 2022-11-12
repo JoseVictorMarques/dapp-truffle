@@ -5,6 +5,7 @@ import AddDoctor from "../../utils/addDoctor";
 import AddPatient from "../../utils/addPatient";
 import AddPharmacy from "../../utils/addPharmacy";
 import AddDCenter from "../../utils/addDCenter";
+import AddRegulator from "../../utils/addRegulator";
 import DoctorInfo from "../../utils/doctorInfo";
 import PatientInfo from "../../utils/patientInfo";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -39,6 +40,7 @@ function Regulator({ contract, accounts, userData }) {
 						<Tab label={"Add pacient"} style={{ color: "#63235A" }} />
 						<Tab label={"Add pharmacy"} style={{ color: "#63235A" }} />
 						<Tab label={"Add dcenter"} style={{ color: "#63235A" }} />
+						<Tab label={"Add regulator"} style={{ color: "#63235A" }} />
 						<Tab label={"Doctor info"} style={{ color: "#63235A" }} />
 						<Tab label={"Pacient info"} style={{ color: "#63235A" }} />
 					</Tabs>
@@ -58,9 +60,12 @@ function Regulator({ contract, accounts, userData }) {
 							<AddDCenter contract={contract} accounts={accounts} />
 						</TabPanel>
 						<TabPanel value={value} index={4}>
-							<DoctorInfo contract={contract} />
+							<AddRegulator contract={contract} accounts={accounts} />
 						</TabPanel>
 						<TabPanel value={value} index={5}>
+							<DoctorInfo contract={contract} />
+						</TabPanel>
+						<TabPanel value={value} index={6}>
 							<PatientInfo contract={contract} request_user={rid} request_type={3} />
 						</TabPanel>
 					</SwipeableViews>
